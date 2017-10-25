@@ -10,7 +10,49 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <style>
+        #start {
+            background-color: green
+        }
+        
+        #restart {
+            background-color: red
+        }
+        
+        body,
+        html {
+            height: 50%;
+        }
+        
+        body {
+            background-image: url("./images/road.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #chevy {
+            width: 20vw;
+            bottom: 20vh;
+        }
+        
+        #dodge {
+            width: 20vw;
+            bottom: 20vh;
+        }
+        
+        .silver {
+            position: absolute;
+            top: 80vh;
+            transition: left .5s;
+        }
+        
+        .yellow {
+            position: absolute;
+            top: 55vh;
+            transition: left .5s;
+        }
+    </style>
 
 </head>
 
@@ -19,8 +61,15 @@
     <div class="container-fluid" id="app">
         <audio id="audio" src="./images/car.mp3" type="audio/mp3"> </audio>
         <button v-if="bttn == false" id="start" @click="race">Start </button>
-        <button v-if="bttn == true" id="restart" @click=race>Restart </button>
+        <button v-if="bttn == true" id="restart" @click="race">Restart </button>
+
         <pre>{{$data}}</pre>
+        <div>
+            <img src="./images/corvettez06.png" id="chevy" class="silver">
+        </div>
+        <div>
+            <img src="./images/dodgeviper.png" id="dodge" class="yellow">
+        </div>
     </div>
 
 
