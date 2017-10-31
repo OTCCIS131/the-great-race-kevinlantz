@@ -15,9 +15,10 @@
 
     <style>
         #start {
-            background-color: green;
+            background-color: lightgreen;
             position: absolute;
             top: 20vh;
+            padding: 12px 28px;
         }
         
         body {
@@ -52,6 +53,14 @@
             width: 15vw;
             right: 0;
         }
+        
+        #label {
+            color: aliceblue;
+        }
+        
+        #label1 {
+            color: aliceblue;
+        }
     </style>
 
 </head>
@@ -59,11 +68,8 @@
 <body>
 
     <div class="container-fluid" id="app">
-        <pre>{{$data}}</pre>
-        <!-- <button id="start"  @click="race ">Start/Restart </button> -->
+
         <button id="start" :disabled="disabled" @click="race">Start/Restart </button>
-
-
 
         <div>
             <img src="./images/corvettez06.png" id="playerA" class="silver" v-bind:style="{ left: `${this.playerA}vw`}">
@@ -73,11 +79,9 @@
             <img src="./images/dodgeviper.png" id="playerB" class="yellow" v-bind:style=" { left: `${this.playerB}vw`}">
         </div>
 
-        <img src="./images/flag.png" id="flag" class="yellow ">
-        <h1>Gray Viper: {{count}}</h1>
-        <h1>Yellow Corvette: {{count1}}</h1>
-
-
+        <img src="./images/flag.png" id="flag" class="yellow animated" :class="{rubberBand: winner }">
+        <h1 id="label">Gray Viper: {{count}}</h1>
+        <h1 id="label1">Yellow Corvette: {{count1}}</h1>
     </div>
 
 

@@ -30,8 +30,8 @@ $(function() {
 
             },
             progressplayer() {
-                this.playerA += (Math.random(1) >= .5)
-                this.playerB += (Math.random(1) >= .5)
+                this.playerA += (Math.random() >= .5)
+                this.playerB += (Math.random() >= .5)
                 this.checkvictory()
             },
 
@@ -74,7 +74,6 @@ $(function() {
                         position: "relative",
                     });
                     this.count++
-
                 }
 
             },
@@ -84,6 +83,7 @@ $(function() {
                 this.winner = player
                 this.racing = false
             },
+
             restart() {
                 this.racing = false
                 this.winner = null
@@ -104,7 +104,6 @@ $(function() {
                     top: "75vh"
                 });
             },
-
         }
     })
 });
