@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>The Great Race</title>
 
@@ -12,45 +13,41 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         #start {
-            background-color: green
-        }
-        
-        #restart {
-            background-color: red
-        }
-        
-        body,
-        html {
-            height: 50%;
+            background-color: green;
+            position: absolute;
+            top: 20vh;
         }
         
         body {
-            background-image: url("./images/road.jpg");
-            background-position: center;
+            background-image: url('./images/road.jpg');
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: bottom;
+            height: 100vh;
+            width: 100vw;
         }
         
-        #chevy {
+        #playerA {
             width: 20vw;
-            bottom: 20vh;
         }
         
-        #dodge {
+        #playerB {
             width: 20vw;
-            bottom: 20vh;
         }
         
         .silver {
             position: absolute;
             top: 80vh;
-            transition: left .5s;
         }
         
         .yellow {
             position: absolute;
             top: 55vh;
-            transition: left .5s;
+        }
+        
+        #flag {
+            width: 15vw;
+            right: 0;
         }
     </style>
 
@@ -59,25 +56,35 @@
 <body>
 
     <div class="container-fluid" id="app">
-        <audio id="audio" src="./images/car.mp3" type="audio/mp3"> </audio>
-        <button v-if="bttn == false" id="start" @click="race">Start </button>
-        <button v-if="bttn == true" id="restart" @click="race">Restart </button>
+        <button id="start" @click="race">Start/Restart </button>
 
-        <pre>{{$data}}</pre>
         <div>
-            <img src="./images/corvettez06.png" id="chevy" class="silver">
+
+            <img src="./images/corvettez06.png" id="playerA" class="silver" v-bind:style="{ left: `${this.playerA}vw`}">
         </div>
         <div>
-            <img src="./images/dodgeviper.png" id="dodge" class="yellow">
+
+            <img src="./images/dodgeviper.png" id="playerB" class="yellow" v-bind:style=" { left: `${this.playerB}vw`}">
         </div>
+        <img src="./images/flag.png" id="flag" class="yellow">
+
     </div>
+
+    <script type="text/javascript" src="./path/to/vue.min.js"></script>
+
+
+    <script type="text/javascript" src="./path/to/vuejs-dialog.min.js"></script>
+
+    <script>
+        // Tell Vue to install the plugin.
+        window.Vue.use(VuejsDialog)
+    </script>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -86,6 +93,8 @@
 
     <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
     <script src="app.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 </body>
 
 </html>

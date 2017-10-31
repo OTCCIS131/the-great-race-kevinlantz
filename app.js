@@ -6,44 +6,47 @@ $(function() {
             winner: null,
             playerA: 0,
             playerB: 0,
-            tick: 0,
-            interval: null,
-            bttn: false
-        },
+            message1: "Corvette WINS!"
 
+
+        },
         methods: {
             race() {
-                this.visable()
+
+
                 if (this.winner) {
                     this.restart()
                     return
                 }
                 this.racing = true
+
                 this.interval = setInterval(() => {
                     this.progressplayer()
-                }, 20)
+                }, 10)
 
             },
             progressplayer() {
-                this.tick++
-                    this.playerA += (Math.random() >= .5) ? 1 : 0
-                this.playerB += (Math.random() >= .5) ? 1 : 0
+                this.playerA += (Math.random() >= .9)
+                this.playerB += (Math.random() >= .5)
                 this.checkvictory()
             },
             checkvictory() {
-                if (this.playerA == this.playerB) return
-                if (this.playerA >= 90) {
+                if (this.playerA >= 80) {
                     this.declareVictory("PlayerA")
+                        // alert("Yellow Corvette WINS")
+
                 }
 
-                if (this.playerB >= 90) {
+                if (this.playerB >= 80) {
                     this.declareVictory("PlayerB")
+                        // alert("Gray Viper WINS")
+
+
                 }
             },
+
             declareVictory(player) {
                 clearInterval(this.interval)
-                this.interval = null
-                this.racing = false
                 this.winner = player
             },
             restart() {
@@ -51,16 +54,9 @@ $(function() {
                 this.winner = null
                 this.playerA = 0
                 this.playerB = 0
-                this.tick = 0
-
             },
-            visable() {
-                this.bttn = !this.bttn
-            }
+
 
         }
     })
 });
-window.onload = function() {
-    document.getElementById("audio").play();
-}
