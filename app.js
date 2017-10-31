@@ -9,8 +9,15 @@ $(function() {
             count: 0,
             count1: 0,
         },
+        computed: {
+            disabled() {
+                return this.racing
+            }
+        },
         methods: {
+
             race() {
+
                 if (this.winner) {
                     this.restart()
                     return
@@ -41,6 +48,7 @@ $(function() {
                         position: "relative",
                         top: "10%",
                     });
+
                     $("#playerB").animate({
                         left: "33%",
                         height: '0vh',
@@ -48,8 +56,6 @@ $(function() {
                         position: "relative",
                     });
                     this.count1++
-
-
                 }
 
                 if (this.playerB >= 80) {
@@ -68,12 +74,15 @@ $(function() {
                         position: "relative",
                     });
                     this.count++
+
                 }
+
             },
 
             declareVictory(player) {
                 clearInterval(this.interval)
                 this.winner = player
+                this.racing = false
             },
             restart() {
                 this.racing = false
@@ -95,6 +104,7 @@ $(function() {
                     top: "75vh"
                 });
             },
+
         }
     })
 });

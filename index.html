@@ -10,6 +10,7 @@
     <title>The Great Race</title>
 
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -58,7 +59,11 @@
 <body>
 
     <div class="container-fluid" id="app">
-        <button id="start" @click="race">Start/Restart </button>
+        <pre>{{$data}}</pre>
+        <!-- <button id="start"  @click="race ">Start/Restart </button> -->
+        <button id="start" :disabled="disabled" @click="race">Start/Restart </button>
+
+
 
         <div>
             <img src="./images/corvettez06.png" id="playerA" class="silver" v-bind:style="{ left: `${this.playerA}vw`}">
@@ -71,6 +76,7 @@
         <img src="./images/flag.png" id="flag" class="yellow ">
         <h1>Gray Viper: {{count}}</h1>
         <h1>Yellow Corvette: {{count1}}</h1>
+
 
     </div>
 
