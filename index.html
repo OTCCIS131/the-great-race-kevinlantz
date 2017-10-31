@@ -11,6 +11,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         #start {
             background-color: green;
@@ -28,11 +29,12 @@
         }
         
         #playerA {
-            width: 20vw;
+            width: 17vw;
+            width: 17vw;
         }
         
         #playerB {
-            width: 20vw;
+            width: 17vw;
         }
         
         .silver {
@@ -59,27 +61,15 @@
         <button id="start" @click="race">Start/Restart </button>
 
         <div>
-
             <img src="./images/corvettez06.png" id="playerA" class="silver" v-bind:style="{ left: `${this.playerA}vw`}">
         </div>
-        <div>
 
+        <div>
             <img src="./images/dodgeviper.png" id="playerB" class="yellow" v-bind:style=" { left: `${this.playerB}vw`}">
         </div>
-        <img src="./images/flag.png" id="flag" class="yellow">
 
+        <img src="./images/flag.png" id="flag" class="yellow ">
     </div>
-
-    <script type="text/javascript" src="./path/to/vue.min.js"></script>
-
-
-    <script type="text/javascript" src="./path/to/vuejs-dialog.min.js"></script>
-
-    <script>
-        // Tell Vue to install the plugin.
-        window.Vue.use(VuejsDialog)
-    </script>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
