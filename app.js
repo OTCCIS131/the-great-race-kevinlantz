@@ -6,6 +6,8 @@ $(function() {
             winner: null,
             playerA: 0,
             playerB: 0,
+            count: 0,
+            count1: 0,
         },
         methods: {
             race() {
@@ -21,10 +23,11 @@ $(function() {
 
             },
             progressplayer() {
-                this.playerA += (Math.random() >= .5)
-                this.playerB += (Math.random() >= .5)
+                this.playerA += (Math.random(1) >= .5)
+                this.playerB += (Math.random(1) >= .5)
                 this.checkvictory()
             },
+
             checkvictory() {
                 if (this.playerA == this.playerB) {
                     return
@@ -44,7 +47,8 @@ $(function() {
                         width: '0vh',
                         position: "relative",
                     });
-                    alert("Yellow Corvette WINS")
+                    this.count1++
+
 
                 }
 
@@ -63,7 +67,7 @@ $(function() {
                         width: '0vh',
                         position: "relative",
                     });
-                    alert("Gray Viper WINS")
+                    this.count++
                 }
             },
 
